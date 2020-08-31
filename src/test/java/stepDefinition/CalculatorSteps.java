@@ -5,6 +5,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class CalculatorSteps {
 
@@ -25,8 +26,9 @@ public class CalculatorSteps {
         calculator.performCalculation(value1, operator, value2);
     }
 
-    @Then("calculation result should be displayed as {int}")
-    public void calculation_result_should_be_displayed_as(Integer expectedResult) {
-        calculator.getResult();
+    @Then("calculation result should be displayed as {string}")
+    public void calculation_result_should_be_displayed_as(String expectedResult) {
+        String actualResult = calculator.getResult();
+        Assert.assertEquals("Calculation Failed", expectedResult, actualResult);
     }
 }

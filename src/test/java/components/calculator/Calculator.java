@@ -29,8 +29,7 @@ public class Calculator extends BaseComponent implements ICalculator {
     @Override
     public String getResult() {
         enterTextUsingActions(CANVAS_CALCULATOR, "=");
-
-        return null;
+        return getTextUsingJS(CANVAS_CALCULATOR);
     }
 
 }

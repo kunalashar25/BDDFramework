@@ -48,8 +48,9 @@ public abstract class BaseComponent {
         new Actions(driver).sendKeys(value).build().perform();
     }
 
-    protected void getTextUsingActions(By by) {
-
+    protected String getTextUsingJS(By by) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        return (String) js.executeScript("return exportRoot.showscreen_txt.text;", "");
     }
 
 
