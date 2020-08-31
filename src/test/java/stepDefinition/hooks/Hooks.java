@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 public class Hooks {
 
     private WebDriver driver;
-    private String homePageUrl = "https://www.online-calculator.com/full-screen-calculator/";
 
     /**
      * To initiate new driver for current scenario execution
@@ -31,7 +30,6 @@ public class Hooks {
      */
     @After(order = 1)
     public void tearDown() {
-        System.out.println("closing browser");
         // adding sleep to view result on UI before it is closed. No need to write this line in actual project
         Uninterruptibles.sleepUninterruptibly(2, TimeUnit.SECONDS);
         this.driver.quit();
@@ -46,7 +44,7 @@ public class Hooks {
     public void captureScreenshotOnFailure(Scenario scenario) {
         if (scenario.isFailed()) {
             byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png", "Execution Failed");
+            scenario.attach(screenshot, "image/png", "ExecutionFailed");
         }
     }
 }

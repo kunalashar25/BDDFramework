@@ -30,6 +30,11 @@ public class DriverFactory {
         return driverThreadLocal.get();
     }
 
+    /**
+     * Get Current driver instance
+     *
+     * @return current driver
+     */
     public static WebDriver getCurrentDriver() {
         return driverThreadLocal.get();
     }

@@ -18,18 +18,30 @@ public class Calculator extends BaseComponent implements ICalculator {
         loadPage(PageUrl.CALCULATOR);
     }
 
+    /**
+     * Perform calculation for given input
+     *
+     * @param value1
+     * @param operation
+     * @param value2
+     */
     @Override
     public void performCalculation(double value1, String operation, double value2) {
         switchToFrame(IFRAME_CALCULATOR);
-        enterTextUsingActions(CANVAS_CALCULATOR, value1 + "");
-        enterTextUsingActions(CANVAS_CALCULATOR, operation);
-        enterTextUsingActions(CANVAS_CALCULATOR, value2 + "");
+        enterTextUsingActions(value1 + "");
+        enterTextUsingActions(operation);
+        enterTextUsingActions(value2 + "");
     }
 
+    /**
+     * Get calculation result from UI
+     *
+     * @return result
+     */
     @Override
     public String getResult() {
-        enterTextUsingActions(CANVAS_CALCULATOR, "=");
-        return getTextUsingJS(CANVAS_CALCULATOR);
+        enterTextUsingActions("=");
+        return getTextUsingJS();
     }
 
 }

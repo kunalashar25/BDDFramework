@@ -9,7 +9,7 @@ import org.junit.Assert;
 
 public class CalculatorSteps {
 
-    Calculator calculator;
+    private Calculator calculator;
 
     @Before
     public void initializeComponents() {

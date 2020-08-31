@@ -1,5 +1,6 @@
 Feature: Test working of online calculator
 
+  @Regression
   Scenario Outline: To test Addition, Subtraction, and Division of values
     Given Navigate to calculator page
     When user enters calculation values <value1> <operator> <value2>
@@ -12,3 +13,4 @@ Feature: Test working of online calculator
       | 3      | "/"      | 2      | "1.5"   |
       | 3      | "/"      | 0      | "Error" |
       | 5.82   | "+"      | 1.18   | "8"     |
+      | -5     | "+"      | -3     | "-8"    |
