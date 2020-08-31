@@ -1,6 +1,6 @@
 package stepDefinition;
 
-import components.Calculator;
+import components.calculator.Calculator;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,7 +17,7 @@ public class CalculatorSteps {
 
     @Given("Navigate to calculator page")
     public void navigate_to_calculator_page() {
-        System.out.println("URL:: "+calculator.getCalculatorPageUrl());
+        calculator.openPage();
     }
 
     @When("user enters calculation values {int} {string} {int}")

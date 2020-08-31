@@ -10,24 +10,30 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public abstract class BaseComponent {
 
-    WebDriver driver;
-    WebDriverWait webDriverWait;
+    private WebDriver driver;
+    private WebDriverWait webDriverWait;
 
     public BaseComponent(WebDriver driver) {
         this.driver = driver;
         webDriverWait = new WebDriverWait(driver, 20);
     }
 
-    public void waitForVisibilityOfElement(By by) {
+    protected void waitForVisibilityOfElement(By by) {
         webDriverWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
     }
 
-    public void click(By by) {
+    protected void loadPage(String pageUrl) {
+        driver.get(pageUrl);
+    }
+
+    protected String getPageUrl() {
+        return driver.getCurrentUrl();
+    }
+
+    protected void click(By by) {
         waitForVisibilityOfElement(by);
         driver.findElement(by).click();
     }
 
-    public String getPageUrl() {
-        return driver.getCurrentUrl();
-    }
+
 }

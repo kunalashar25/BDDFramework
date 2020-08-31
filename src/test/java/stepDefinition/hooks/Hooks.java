@@ -24,7 +24,6 @@ public class Hooks {
     public void setUp() {
         this.driver = DriverFactory.getWebDriver(BrowserType.CHROME);
         this.driver.manage().window().maximize();
-        this.driver.get(homePageUrl);
     }
 
     /**
