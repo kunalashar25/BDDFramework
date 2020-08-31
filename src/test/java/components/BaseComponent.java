@@ -1,7 +1,7 @@
 package components;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,12 +18,17 @@ public abstract class BaseComponent {
         webDriverWait = new WebDriverWait(driver, 20);
     }
 
-    protected void waitForVisibilityOfElement(By by) {
+    private void waitForVisibilityOfElement(By by) {
         webDriverWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
     }
 
     protected void loadPage(String pageUrl) {
         driver.get(pageUrl);
+        waitForPageLoad();
+    }
+
+    protected void waitForPageLoad() {
+        ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
     }
 
     protected String getPageUrl() {
@@ -33,6 +38,18 @@ public abstract class BaseComponent {
     protected void click(By by) {
         waitForVisibilityOfElement(by);
         driver.findElement(by).click();
+    }
+
+    protected void switchToFrame(By by) {
+        webDriverWait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(by));
+    }
+
+    protected void enterTextUsingActions(By by, String value) {
+        new Actions(driver).sendKeys(value).build().perform();
+    }
+
+    protected void getTextUsingActions(By by) {
+
     }
 
 

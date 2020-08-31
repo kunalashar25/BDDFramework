@@ -8,4 +8,3 @@ Feature: Test working of online calculator
     Examples:
       | value1 | operator | value2 | result |
       | 1      | "+"      | 2      | 3      |
-      | 1      | "-"      | 1      | 0      |

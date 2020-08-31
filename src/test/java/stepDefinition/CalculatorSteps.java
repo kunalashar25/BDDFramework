@@ -20,13 +20,13 @@ public class CalculatorSteps {
         calculator.openPage();
     }
 
-    @When("user enters calculation values {int} {string} {int}")
-    public void user_enters_calculation_values(Integer value1, String operator, Integer value2) {
-        System.out.println("Value1:: " + value1 + " | Operator:: " + operator + " | Value2::" + value2);
+    @When("user enters calculation values {double} {string} {double}")
+    public void user_enters_calculation_values(Double value1, String operator, Double value2) {
+        calculator.performCalculation(value1, operator, value2);
     }
 
     @Then("calculation result should be displayed as {int}")
     public void calculation_result_should_be_displayed_as(Integer expectedResult) {
-        System.out.println("Result:: " + expectedResult);
+        calculator.getResult();
     }
 }
