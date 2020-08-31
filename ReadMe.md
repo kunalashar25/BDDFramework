@@ -16,7 +16,7 @@
 ## Folder Structure
 Entire code is placed under `src/test/` package.
 
-`test/java` - contains all the source code required to execute automated checks.
+`test/java` - contains all the source code required to execute automated checks.<br>
 `test/resources` - contains `.feature` and `.properties` files
 
 ## Execution Point
